@@ -19,7 +19,7 @@ def load(file):
     try:
         with open(file, encoding="utf-8") as in_file:
             loaded_txt = in_file.read().strip().split('\n')
-            loaded_txt = [x.lower() for x in loaded_txt]
+            loaded_txt = {x.lower() for x in loaded_txt if len(x)>1}
             return loaded_txt
     except IOError as e:
         print(f"{e}\nError opening {file}",
